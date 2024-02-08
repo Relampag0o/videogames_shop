@@ -1,3 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_videogames_shop_product,videogames_shop.product,model_videogames_shop_product,base.group_user,1,1,1,1
 access_videogames_shop_supplier,videogames_shop.supplier,model_videogames_shop_supplier,base.group_user,1,1,1,1
+access_videogames_shop_customer,videogames_shop.customer,model_videogames_shop_customer,base.group_user,1,1,1,1
+access_videogames_shop_sale,videogames_shop.sale,model_videogames_shop_sale,base.group_user,1,1,1,1
+access_videogames_shop_employee,videogames_shop.employee,model_videogames_shop_employee,base.group_user,1,1,1,1
+access_videogames_shop_product_review,videogames_shop.product_review,model_videogames_shop_product_review,base.group_user,1,1,1,1
