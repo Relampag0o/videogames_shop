@@ -15,7 +15,8 @@ class Product(models.Model):
     available_stock = fields.Integer(string='Available Stock')
     price = fields.Float(string='Price')
     supplier_id = fields.Many2one('videogames_shop.supplier', string='Supplier')
-
+    
+   
 class Customer(models.Model):
     _name = 'videogames_shop.customer'
 

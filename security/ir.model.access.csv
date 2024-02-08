@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_videogames_shop_videogames_shop,videogames_shop.videogames_shop,model_videogames_shop_videogames_shop,base.group_user,1,1,1,1
+access_videogames_shop_product,videogames_shop.product,model_videogames_shop_product,base.group_user,1,1,1,1
