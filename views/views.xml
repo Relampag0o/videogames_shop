@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="videogames_shop.list">
+      <field name="name">videogames_shop list</field>
+      <field name="model">videogames_shop.videogames_shop</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="videogames_shop.action_window">
+      <field name="name">videogames_shop window</field>
+      <field name="res_model">videogames_shop.videogames_shop</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="videogames_shop.action_server">
+      <field name="name">videogames_shop server</field>
+      <field name="model_id" ref="model_videogames_shop_videogames_shop"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="videogames_shop" id="videogames_shop.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="videogames_shop.menu_1" parent="videogames_shop.menu_root"/>
+    <menuitem name="Menu 2" id="videogames_shop.menu_2" parent="videogames_shop.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="videogames_shop.menu_1_list" parent="videogames_shop.menu_1"
+              action="videogames_shop.action_window"/>
+    <menuitem name="Server to list" id="videogames_shop" parent="videogames_shop.menu_2"
+              action="videogames_shop.action_server"/>
+-->
+  </data>
+</odoo>
