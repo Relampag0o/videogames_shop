@@ -16,7 +16,7 @@
     </field>
 </record>
 
-<record model="ir.actions.act_window" id="supplier_action_window">
+<record model="ir.actions.act_window" id="videogames_shop.suppliers_action_window">
     <field name="name">Suppliers Management</field>
     <field name="res_model">videogames_shop.supplier</field>
     <field name="view_mode">tree,form</field>
@@ -24,7 +24,7 @@
 
   <!-- VIDEOGAMES VIEW-->
     
-    <record id="view_book_form" model="ir.ui.view">
+    <record id="view_videogames_form" model="ir.ui.view">
         <field name="name">videogames_shop.product.form</field>
         <field name="model">videogames_shop.product</field>
         <field name="arch" type="xml">
@@ -45,7 +45,7 @@
 
 
 
-     <record model="ir.actions.act_window" id="book_shop.books_action_window">
+     <record model="ir.actions.act_window" id="videogames_shop.product_action_window">
       <field name="name">VideoGames Management</field>
       <field name="res_model">videogames_shop.product</field>
       <field name="view_mode">tree,form</field>
@@ -145,7 +145,18 @@
     <field name="view_mode">tree,form</field>
 </record>
 
+
+
+
 <!-- MENU VIEWS -->
+<menuitem id="videogames_shop.menu_root" name="Videogames Shop" />
+<menuitem id="videogames_shop.menu_root_customers" name="Customers" parent="videogames_shop.menu_root" action="customer_action_window"/>
+<menuitem id="videogames_shop.menu_root_suppliers" name="Suppliers" parent="videogames_shop.menu_root" action="videogames_shop.suppliers_action_window"/>
+<menuitem id="videogames_shop.menu_root_products" name="Videogames" parent="videogames_shop.menu_root" action="videogames_shop.product_action_window"/>
+<menuitem id="videogames_shop.menu_root_sales" name="Sales" parent="videogames_shop.menu_root" action="sale_action_window"/>
+<menuitem id="videogames_shop.menu_root_employees" name="Employees" parent="videogames_shop.menu_root" action="employee_action_window"/>
+<menuitem id="videogames_shop.menu_root_product_reviews" name="Product Reviews" parent="videogames_shop.menu_root" action="product_review_action_window"/>
+
 
 
   </data>
