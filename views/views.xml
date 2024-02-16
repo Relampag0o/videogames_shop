@@ -25,22 +25,28 @@
   <!-- VIDEOGAMES VIEW-->
     
     <record id="view_videogames_form" model="ir.ui.view">
-        <field name="name">videogames_shop.product.form</field>
-        <field name="model">videogames_shop.product</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="platform" widget="image"/>
-                        <field name="genre"/>
-                        <field name="available_stock"/>
-                        <field name="price"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>    
+    <field name="name">videogames_shop.product.form</field>
+    <field name="model">videogames_shop.product</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="image" widget="image"/>
+                    <field name="platform"/>
+                    <field name="genre"/>
+                    <field name="available_stock"/>
+                    <field name="price"/>
+                    <field name="supplier_id"/>
+                    <field name="reserved_stock"/>
+                    <field name="total_stock" readonly="1"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
 
 
 
@@ -50,6 +56,10 @@
       <field name="res_model">videogames_shop.product</field>
       <field name="view_mode">tree,form</field>
     </record>
+
+    
+
+
 
 
 <!-- CUSTOMER VIEWS -->
