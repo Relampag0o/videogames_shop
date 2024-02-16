@@ -1,3 +1,4 @@
+# Those are the necessary imports to make everything work.
 from odoo import models, fields, api, exceptions
 import re
 import secrets
@@ -5,7 +6,9 @@ import logging
 from datetime import date
 from odoo.exceptions import ValidationError
 
-# Those are the necessary imports to make everything work.
+
+# EVERYTHING IS GOING TO BE COMMENTED IN THE PDF, BUT CLASSES ARE ALSO GOING TO BE EXPLAINED HERE.
+
 
 _logger = logging.getLogger(__name__)  
 
