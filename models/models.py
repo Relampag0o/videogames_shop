@@ -113,6 +113,7 @@ class Employee(models.Model):
     salary = fields.Float(string='Salary', compute='_compute_salary')
 
 
+    # This function is used to calculate the salary of an employee.
     @api.depends('join_date')
     def _compute_salary(self):
         for record in self:
@@ -135,7 +136,7 @@ class ProductReview(models.Model):
     reviewer_name = fields.Char(string='Reviewer Name')
     is_approved = fields.Boolean(string='Is Approved', default=False)
 
-
+    # This function is used to calculate the average rating of a product.
     @api.model
     def create(self, vals):
         # Check if the rating is within a valid range
