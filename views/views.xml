@@ -9,7 +9,10 @@
             <sheet>
                 <group>
                     <field name="name"/>
+                    <field name="image" widget="image"/>
+                    <field name="nss"/>
                     <field name="contact_info"/>
+                    <field name="product_count" readonly="1"/>
                 </group>
             </sheet>
         </form>
@@ -72,6 +75,10 @@
                 <group>
                     <field name="name"/>
                     <field name="contact_info"/>
+                    <field name="password" readonly="1"/>
+                    <field name="date_joined" readonly="1"/>
+                    <field name="purchase_count" readonly="1"/>
+                    <button name="regenerate_password" string="Regenerate Password" type="object"/>
                 </group>
             </sheet>
         </form>
@@ -92,14 +99,29 @@
         <form>
             <sheet>
                 <group>
-                    <field name="sale_date"/>
-                    <field name="sold_products" widget="many2many_tags"/>
-                    <field name="customer_id"/>
-                    <field name="employee_id"/>
-                    <field name="total_sale"/>
+                    <field name="id_name" style="color:blue;"/>
+                    <field name="sale_date" style="color:green;"/>
+                    <field name="sold_products" widget="many2many_tags" style="color:red;"/>
+                    <field name="customer_id" style="color:purple;"/>
+                    <field name="employee_id" style="color:brown;"/>
+                    <field name="total_sale" style="color:orange;"/>
                 </group>
             </sheet>
         </form>
+    </field>
+</record>
+
+<record id="view_sale_tree" model="ir.ui.view">
+    <field name="name">videogames_shop.sale.tree</field>
+    <field name="model">videogames_shop.sale</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="id_name"/>
+            <field name="sale_date"/>
+            <field name="customer_id"/>
+            <field name="employee_id"/>
+            <field name="total_sale"/>
+        </tree>
     </field>
 </record>
 
@@ -107,6 +129,7 @@
     <field name="name">Sales Management</field>
     <field name="res_model">videogames_shop.sale</field>
     <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_sale_tree"/>
 </record>
 
 <!-- EMPLOYEE VIEWS -->
