@@ -2,6 +2,8 @@ from odoo import models, fields, api, exceptions
 import re
 import secrets
 import logging
+from datetime import date
+from odoo.exceptions import ValidationError
 
 
 
@@ -57,6 +59,7 @@ class Customer(models.Model):
     date_joined = fields.Date(string='Date Joined', default=fields.Date.today)
     purchase_ids = fields.One2many('videogames_shop.sale', 'customer_id', string='Purchases')
     purchase_count = fields.Integer(string='Purchase Count', compute='_compute_purchase_count')
+    image = fields.Binary(string='Image', attachment=True)
 
     def _get_password(self):
         password = secrets.token_urlsafe(12)
@@ -94,11 +97,43 @@ class Employee(models.Model):
     name = fields.Char(string='Employee Name')
     position = fields.Char(string='Position')
     contact_info = fields.Char(string='Contact Information')
+    image = fields.Binary(string='Image', attachment=True)
+    join_date = fields.Date(string='Join Date')
+    salary = fields.Float(string='Salary', compute='_compute_salary')
+
+    @api.depends('join_date')
+    def _compute_salary(self):
+        for record in self:
+            base_salary = 1100  
+            if record.join_date:
+                years_of_service = (date.today() - record.join_date).days // 365
+                record.salary = base_salary + (base_salary * years_of_service * 0.05)  
+            else:
+                record.salary = base_salary
 
 class ProductReview(models.Model):
     _name = 'videogames_shop.product_review'
 
+    review_name = fields.Char(string='Review Name', readonly=True)
     comment = fields.Text(string='Comment')
     rating = fields.Float(string='Rating')
     product_id = fields.Many2one('videogames_shop.product', string='Associated Product')
+    review_date = fields.Date(string='Review Date', default=fields.Date.today)
+    reviewer_name = fields.Char(string='Reviewer Name')
+    is_approved = fields.Boolean(string='Is Approved', default=False)
+
+    @api.model
+    def create(self, vals):
+        # Check if the rating is within a valid range
+        if 'rating' in vals and not 1 <= vals['rating'] <= 5:
+            raise ValidationError("Rating must be between 1 and 5.")
+        
+        # Generate a unique review name
+        vals['review_name'] = 'Review {}'.format(self.env['ir.sequence'].next_by_code('videogames_shop.product_review'))
+        
+        return super(ProductReview, self).create(vals)
+
+    def approve_review(self):
+        # This function can be called to approve a review
+        self.is_approved = True
     
