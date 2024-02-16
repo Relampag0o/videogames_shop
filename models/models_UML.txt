@@ -1,0 +1,31 @@
+@startuml
+class Supplier {
+    _compute_product_count()
+    _check_nss()
+        __init__()
+}
+class Product {
+    _compute_total_stock()
+        __init__()
+}
+class Customer {
+    _get_password()
+    _compute_purchase_count()
+    regenerate_password()
+        __init__()
+}
+class Sale {
+    create()
+        __init__()
+}
+class Employee {
+    _compute_salary()
+        __init__()
+}
+class ProductReview {
+    create()
+    approve_review()
+        is_approved
+    __init__()
+}
+@enduml
