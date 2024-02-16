@@ -1,23 +1,19 @@
 <odoo>
   <data>
   <!-- SUPPLIER VIEWS -->
-<record id="view_supplier_form" model="ir.ui.view">
-    <field name="name">videogames_shop.supplier.form</field>
-    <field name="model">videogames_shop.supplier</field>
-    <field name="arch" type="xml">
-        <form>
-            <sheet>
-                <group>
-                    <field name="name"/>
-                    <field name="image" widget="image"/>
-                    <field name="nss"/>
-                    <field name="contact_info"/>
-                    <field name="product_count" readonly="1"/>
-                </group>
-            </sheet>
-        </form>
-    </field>
-</record>
+<record id="view_supplier_tree" model="ir.ui.view">
+        <field name="name">videogames_shop.supplier.tree</field>
+        <field name="model">videogames_shop.supplier</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="image" widget="image" options='{"size": [100, 100]}'/>
+                <field name="nss"/>
+                <field name="contact_info"/>
+                <field name="product_count"/>
+            </tree>
+        </field>
+    </record>
 
 <record model="ir.actions.act_window" id="videogames_shop.suppliers_action_window">
     <field name="name">Suppliers Management</field>
@@ -34,16 +30,16 @@
         <form>
             <sheet>
                 <group>
-                    <field name="name"/>
-                    <field name="image" widget="image"/>
-                    <field name="platform"/>
-                    <field name="genre"/>
-                    <field name="available_stock"/>
-                    <field name="price"/>
-                    <field name="supplier_id"/>
-                    <field name="reserved_stock"/>
-                    <field name="total_stock" readonly="1"/>
-                </group>
+                            <field name="name"/>
+                            <field name="image" widget="image" options='{"size": [100, 100]}'/>
+                            <field name="platform"/>
+                            <field name="genre"/>
+                            <field name="available_stock"/>
+                            <field name="price"/>
+                            <field name="supplier_id"/>
+                            <field name="reserved_stock"/>
+                            <field name="total_stock" readonly="1"/>
+                        </group>
             </sheet>
         </form>
     </field>
@@ -92,8 +88,11 @@
     <field name="arch" type="xml">
         <tree>
             <field name="name"/>
-            <field name="image" widget="image"/>
-            
+            <field name="image" widget="image" options='{"size": [50, 50]}'/>
+            <field name="contact_info"/>
+            <field name="password"/>
+            <field name="date_joined"/>
+            <field name="purchase_count"/>
         </tree>
     </field>
 </record>
